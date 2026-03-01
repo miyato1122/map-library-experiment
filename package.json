@@ -1,0 +1,28 @@
+{
+  "name": "map-experiment",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev:ol": "pnpm --filter openlayers dev",
+    "dev:ml": "pnpm --filter maplibre dev",
+    "build:ol": "pnpm --filter openlayers build",
+    "build:ml": "pnpm --filter maplibre build",
+    "build": "pnpm --filter './apps/*' build",
+    "typecheck": "pnpm --filter './apps/*' typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
