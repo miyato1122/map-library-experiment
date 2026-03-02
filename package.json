@@ -16,13 +16,19 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue": "catalog:",
-    "vue-tsc": "catalog:"
+    "vue-tsc": "catalog:",
+    "@nuxt/ui": "catalog:",
+    "tailwindcss": "catalog:",
+    "jiti": "catalog:",
+    "lightningcss": "catalog:"
   },
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=10.0.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
