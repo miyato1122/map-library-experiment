@@ -1,26 +1,32 @@
 {
   "name": "map-experiment",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev:ol": "pnpm --filter openlayers dev",
     "dev:ml": "pnpm --filter maplibre dev",
     "build:ol": "pnpm --filter openlayers build",
     "build:ml": "pnpm --filter maplibre build",
     "build": "pnpm --filter './apps/*' build",
-    "typecheck": "pnpm --filter './apps/*' typecheck"
+    "typecheck": "pnpm --filter './apps/*' typecheck",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check ."
   },
   "devDependencies": {
+    "@nuxt/ui": "catalog:",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "jiti": "catalog:",
+    "lightningcss": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue": "catalog:",
-    "vue-tsc": "catalog:",
-    "@nuxt/ui": "catalog:",
-    "tailwindcss": "catalog:",
-    "jiti": "catalog:",
-    "lightningcss": "catalog:"
+    "vue-tsc": "catalog:"
   },
   "engines": {
     "node": ">=20.0.0",

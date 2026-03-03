@@ -1,7 +1,7 @@
 {
   "name": "maplibre",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,16 +13,16 @@
     "maplibre-gl": "^5.0.0"
   },
   "devDependencies": {
+    "@nuxt/ui": "catalog:",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "jiti": "catalog:",
+    "lightningcss": "catalog:",
+    "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vue": "catalog:",
-    "vue-tsc": "catalog:",
-    "@nuxt/ui": "catalog:",
-    "tailwindcss": "catalog:",
-    "jiti": "catalog:",
-    "lightningcss": "catalog:",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
