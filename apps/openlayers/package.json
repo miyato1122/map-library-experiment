@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vp dev",
+    "build": "vue-tsc --noEmit && vp build",
     "typecheck": "vue-tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vp preview"
   },
   "dependencies": {
     "ol": "^10.8.0"
@@ -16,7 +16,7 @@
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
+    "vite-plus": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:",
     "@nuxt/ui": "catalog:",
