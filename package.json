@@ -1,34 +1,38 @@
 {
   "name": "map-experiment",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev:ol": "vp dev apps/openlayers",
     "dev:ml": "vp dev apps/maplibre",
     "build:ol": "vp build apps/openlayers",
     "build:ml": "vp build apps/maplibre",
     "build": "vp run -r build",
-    "typecheck": "vp run -r typecheck"
+    "typecheck": "vp run -r typecheck",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "fmt": "vp fmt",
+    "fmt:check": "vp fmt --check"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "jiti": "catalog:",
+    "lightningcss": "catalog:",
+    "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite-plus": "catalog:",
     "vue": "catalog:",
-    "vue-tsc": "catalog:",
-    "tailwindcss": "catalog:",
-    "jiti": "catalog:",
-    "lightningcss": "catalog:"
+    "vue-tsc": "catalog:"
   },
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=10.0.0"
   },
+  "packageManager": "pnpm@10.33.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
     ]
-  },
-  "packageManager": "pnpm@10.33.0"
+  }
 }

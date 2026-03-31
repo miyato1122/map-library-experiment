@@ -1,18 +1,18 @@
 packages:
-  - "apps/*"
+  - 'apps/*'
 
 overrides:
-  vite: "npm:@voidzero-dev/vite-plus-core@latest"
+  vite: 'npm:@voidzero-dev/vite-plus-core@latest'
 
 catalog:
-  vite-plus: "latest"
-  vue: "^3.5.29"
-  typescript: "^5.9.3"
-  "@vitejs/plugin-vue": "^6.0.4"
-  vue-tsc: "^3.2.5"
-  "@types/node": "^22.0.0"
-  "tailwindcss": "^4.2.1"
-  "jiti": "^2.6.1"
-  "lightningcss": "^1.31.1"
-  "primevue": "^4.3.5"
-  "@primevue/themes": "^4.3.5"
+  vite-plus: 'latest'
+  vue: '^3.5.29'
+  typescript: '^5.9.3'
+  '@vitejs/plugin-vue': '^6.0.4'
+  vue-tsc: '^3.2.5'
+  '@types/node': '^22.0.0'
+  'tailwindcss': '^4.2.1'
+  'jiti': '^2.6.1'
+  'lightningcss': '^1.31.1'
+  'primevue': '^4.3.5'
+  '@primevue/themes': '^4.3.5'

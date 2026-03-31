@@ -1,87 +1,88 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from "vue";
-import Button from "primevue/button";
-import Map from "ol/Map";
-import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
-import OSM from "ol/source/OSM";
-import type TileSource from "ol/source/Tile";
-import { fromLonLat } from "ol/proj";
-import "ol/ol.css";
-import { XYZ } from "ol/source";
+import TileLayer from 'ol/layer/Tile'
+import Map from 'ol/Map'
+import { fromLonLat } from 'ol/proj'
+import { XYZ } from 'ol/source'
+import OSM from 'ol/source/OSM'
+import type TileSource from 'ol/source/Tile'
+import View from 'ol/View'
+import Button from 'primevue/button'
+
+import 'ol/ol.css'
+import { onMounted, onBeforeUnmount, ref } from 'vue'
 
 interface MapOption {
-  id: string;
-  label: string;
-  makeSource: () => TileSource;
+  id: string
+  label: string
+  makeSource: () => TileSource
 }
 
 const MAP_OPTIONS: MapOption[] = [
   {
-    id: "gsi-pale",
-    label: "淡色地図",
+    id: 'gsi-pale',
+    label: '淡色地図',
     makeSource: () =>
       new XYZ({
-        url: "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
-        attributions: "国土地理院",
-      }),
+        url: 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+        attributions: '国土地理院'
+      })
   },
   {
-    id: "gsi-std",
-    label: "標準地図",
+    id: 'gsi-std',
+    label: '標準地図',
     makeSource: () =>
       new XYZ({
-        url: "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",
-        attributions: "国土地理院",
-      }),
+        url: 'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+        attributions: '国土地理院'
+      })
   },
   {
-    id: "gsi-photo",
-    label: "空中写真",
+    id: 'gsi-photo',
+    label: '空中写真',
     makeSource: () =>
       new XYZ({
-        url: "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
-        attributions: "国土地理院",
-      }),
+        url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+        attributions: '国土地理院'
+      })
   },
   {
-    id: "osm",
-    label: "OpenStreetMap",
-    makeSource: () => new OSM(),
-  },
-];
+    id: 'osm',
+    label: 'OpenStreetMap',
+    makeSource: () => new OSM()
+  }
+]
 
-const mapContainer = ref<HTMLDivElement | null>(null);
-const activeMapId = ref<string>(MAP_OPTIONS[0].id);
-let map: Map | null = null;
-let baseLayer: TileLayer<TileSource> | null = null;
+const mapContainer = ref<HTMLDivElement | null>(null)
+const activeMapId = ref<string>(MAP_OPTIONS[0].id)
+let map: Map | null = null
+let baseLayer: TileLayer<TileSource> | null = null
 
 onMounted(() => {
-  if (!mapContainer.value) return;
+  if (!mapContainer.value) return
 
-  const initialOption = MAP_OPTIONS.find((o) => o.id === activeMapId.value)!;
-  baseLayer = new TileLayer({ source: initialOption.makeSource() });
+  const initialOption = MAP_OPTIONS.find((o) => o.id === activeMapId.value)!
+  baseLayer = new TileLayer({ source: initialOption.makeSource() })
 
   map = new Map({
     target: mapContainer.value,
     layers: [baseLayer],
     view: new View({
       center: fromLonLat([135.8048, 34.6851]),
-      zoom: 16,
-    }),
-  });
-});
+      zoom: 16
+    })
+  })
+})
 
 onBeforeUnmount(() => {
-  map?.setTarget(undefined);
-  map = null;
-  baseLayer = null;
-});
+  map?.setTarget(undefined)
+  map = null
+  baseLayer = null
+})
 
 function switchBaseMap(option: MapOption): void {
-  if (option.id === activeMapId.value) return;
-  activeMapId.value = option.id;
-  baseLayer?.setSource(option.makeSource());
+  if (option.id === activeMapId.value) return
+  activeMapId.value = option.id
+  baseLayer?.setSource(option.makeSource())
 }
 </script>
 
@@ -133,5 +134,4 @@ function switchBaseMap(option: MapOption): void {
   flex-direction: column;
   gap: 0.25rem;
 }
-
 </style>

@@ -1,19 +1,20 @@
-import { defineConfig } from "vite-plus";
-import vue from "@vitejs/plugin-vue";
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath, URL } from 'node:url'
+
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
   },
   server: {
-    port: 5174,
+    port: 5174
   },
   build: {
-    outDir: "dist",
-    sourcemap: true,
-  },
-});
+    outDir: 'dist',
+    sourcemap: true
+  }
+})

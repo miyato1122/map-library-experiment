@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from "vue";
-import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
+import maplibregl from 'maplibre-gl'
+import { onMounted, onBeforeUnmount, ref } from 'vue'
 
-const mapContainer = ref<HTMLDivElement | null>(null);
-let map: maplibregl.Map | null = null;
+import 'maplibre-gl/dist/maplibre-gl.css'
+
+const mapContainer = ref<HTMLDivElement | null>(null)
+let map: maplibregl.Map | null = null
 
 onMounted(() => {
-  if (!mapContainer.value) return;
+  if (!mapContainer.value) return
 
   map = new maplibregl.Map({
     container: mapContainer.value,
@@ -15,31 +16,31 @@ onMounted(() => {
       version: 8,
       sources: {
         osm: {
-          type: "raster",
-          tiles: ["https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"],
+          type: 'raster',
+          tiles: ['https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png'],
           tileSize: 256,
-          attribution: "&copy; 国土地理院",
-        },
+          attribution: '&copy; 国土地理院'
+        }
       },
       layers: [
         {
-          id: "osm-tiles",
-          type: "raster",
-          source: "osm",
+          id: 'osm-tiles',
+          type: 'raster',
+          source: 'osm',
           minzoom: 0,
-          maxzoom: 19,
-        },
-      ],
+          maxzoom: 19
+        }
+      ]
     },
     center: [135.8048, 34.6851],
-    zoom: 15,
-  });
-});
+    zoom: 15
+  })
+})
 
 onBeforeUnmount(() => {
-  map?.remove();
-  map = null;
-});
+  map?.remove()
+  map = null
+})
 </script>
 
 <template>
