@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev:ol": "pnpm --filter openlayers dev",
-    "dev:ml": "pnpm --filter maplibre dev",
-    "build:ol": "pnpm --filter openlayers build",
-    "build:ml": "pnpm --filter maplibre build",
-    "build": "pnpm --filter './apps/*' build",
-    "typecheck": "pnpm --filter './apps/*' typecheck"
+    "dev:ol": "vp dev apps/openlayers",
+    "dev:ml": "vp dev apps/maplibre",
+    "build:ol": "vp build apps/openlayers",
+    "build:ml": "vp build apps/maplibre",
+    "build": "vp run -r build",
+    "typecheck": "vp run -r typecheck"
   },
   "devDependencies": {
     "@types/node": "catalog:",
@@ -30,5 +30,6 @@
     "onlyBuiltDependencies": [
       "esbuild"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
