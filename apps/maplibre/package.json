@@ -19,10 +19,10 @@
     "vite-plus": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:",
-    "@nuxt/ui": "catalog:",
     "tailwindcss": "catalog:",
     "jiti": "catalog:",
     "lightningcss": "catalog:",
-    "vue-router": "catalog:"
+    "primevue": "catalog:",
+    "@primevue/themes": "catalog:"
   }
 }

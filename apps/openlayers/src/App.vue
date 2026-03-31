@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from "vue";
+import Button from "primevue/button";
 import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
@@ -89,14 +90,14 @@ function switchBaseMap(option: MapOption): void {
     <div class="map-wrapper">
       <div ref="mapContainer" class="map-container" />
       <div class="map-selector">
-        <button
+        <Button
           v-for="option in MAP_OPTIONS"
           :key="option.id"
-          :class="['map-btn', { active: option.id === activeMapId }]"
+          :label="option.label"
+          :severity="option.id === activeMapId ? 'primary' : 'secondary'"
+          size="small"
           @click="switchBaseMap(option)"
-        >
-          {{ option.label }}
-        </button>
+        />
       </div>
     </div>
   </div>
@@ -133,24 +134,4 @@ function switchBaseMap(option: MapOption): void {
   gap: 0.25rem;
 }
 
-.map-btn {
-  padding: 0.3rem 0.6rem;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  text-align: left;
-  white-space: nowrap;
-}
-
-.map-btn:hover {
-  background: #f0f0f0;
-}
-
-.map-btn.active {
-  background: #0078d4;
-  color: white;
-  border-color: #0078d4;
-}
 </style>

@@ -1,9 +1,9 @@
 import { createApp } from "vue";
-import { createRouter, createMemoryHistory } from "vue-router";
-import ui from "@nuxt/ui/vue-plugin";
+import PrimeVue from "primevue/config";
+import Aura from "@primevue/themes/aura";
 import App from "./App.vue";
 import "./style.css";
 
-const router = createRouter({ history: createMemoryHistory(), routes: [] });
-
-createApp(App).use(router).use(ui).mount("#app");
+createApp(App)
+  .use(PrimeVue, { theme: { preset: Aura } })
+  .mount("#app");
